@@ -1,0 +1,41 @@
+send_sms:
+  name: Wyślij SMS
+  description: Wysyła jedną wiadomość SMS przez SMSAPI.pl.
+  fields:
+    recipients:
+      name: Odbiorcy
+      description: Lista numerów w formacie międzynarodowym, np. 48500100200.
+      required: false
+      example:
+        - "48500100200"
+      selector:
+        object:
+    message:
+      name: Wiadomość
+      description: Treść wiadomości SMS.
+      required: true
+      example: "Alarm: wykryto ruch w garażu."
+      selector:
+        text:
+          multiline: true
+    sender:
+      name: Nadawca
+      description: Zweryfikowane pole nadawcy SMSAPI, maksymalnie 11 znaków.
+      required: false
+      example: "MojDom"
+      selector:
+        text:
+    normalize:
+      name: Usuń polskie znaki
+      description: Zleca SMSAPI zamianę znaków diakrytycznych na podstawowe.
+      required: false
+      default: false
+      selector:
+        boolean:
+    fast:
+      name: Tryb FAST
+      description: Wysyła wiadomość z parametrem fast=1.
+      required: false
+      default: false
+      selector:
+        boolean:
