@@ -1,0 +1,32 @@
+name: Zgłoszenie błędu
+description: Zgłoś problem z integracją SMSAPI.pl
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Nie wklejaj tokenu SMSAPI ani pełnych numerów telefonów.
+  - type: input
+    id: ha_version
+    attributes:
+      label: Wersja Home Assistant
+    validations:
+      required: true
+  - type: input
+    id: integration_version
+    attributes:
+      label: Wersja integracji
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Opis problemu
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logi po usunięciu danych wrażliwych
+      render: text
