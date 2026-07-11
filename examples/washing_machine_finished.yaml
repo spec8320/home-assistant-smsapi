@@ -1,0 +1,13 @@
+alias: SMS - pralka zakończyła pracę
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.pralka_power
+    below: 3
+    for: "00:03:00"
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.smsapi_pl
+    data:
+      message: "Pralka zakończyła pracę."
+mode: single
