@@ -9,7 +9,7 @@ from typing import Any
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_MESSAGE
+from homeassistant.components.notify import ATTR_MESSAGE
 from homeassistant.core import HomeAssistant, ServiceCall, ServiceResponse, SupportsResponse
 from homeassistant.exceptions import HomeAssistantError, ServiceValidationError
 from homeassistant.helpers import config_validation as cv
@@ -33,7 +33,7 @@ _LOGGER = logging.getLogger(__name__)
 SERVICE_SCHEMA = vol.Schema(
     {
         vol.Optional("recipients"): vol.All(cv.ensure_list, [cv.string]),
-        vol.Required(CONF_MESSAGE): cv.string,
+        vol.Required(ATTR_MESSAGE): cv.string,
         vol.Optional("sender"): cv.string,
         vol.Optional("normalize", default=False): cv.boolean,
         vol.Optional("fast", default=False): cv.boolean,
@@ -122,7 +122,7 @@ async def _async_handle_send_sms(
     if sender and len(sender) > 11:
         raise ServiceValidationError("Pole nadawcy może mieć maksymalnie 11 znaków")
 
-    message = call.data[CONF_MESSAGE].strip()
+    message = call.data[ATTR_MESSAGE].strip()
     if not message:
         raise ServiceValidationError("Treść wiadomości nie może być pusta")
 
