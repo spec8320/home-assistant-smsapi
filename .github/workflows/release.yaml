@@ -30,6 +30,6 @@ jobs:
           zip -r ../../smsapi.zip .                 -x '__pycache__/*' '*.pyc'
 
       - name: Upload release asset
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: smsapi.zip
