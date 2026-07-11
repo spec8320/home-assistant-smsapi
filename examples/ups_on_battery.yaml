@@ -1,0 +1,14 @@
+alias: SMS - UPS na baterii
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.ups_on_battery
+    to: "on"
+actions:
+  - action: smsapi.send_sms
+    data:
+      recipients:
+        - "48500100200"
+      message: >-
+        Awaria zasilania. UPS przeszedł na baterię.
+        Poziom: {{ states('sensor.ups_battery_charge') }}%.
+mode: single

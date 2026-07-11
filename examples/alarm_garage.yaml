@@ -1,0 +1,21 @@
+alias: SMS - alarm garaż
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.ruch_garaz
+    to: "on"
+conditions:
+  - condition: state
+    entity_id: alarm_control_panel.alarm_dom
+    state:
+      - armed_away
+      - armed_night
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.smsapi_pl
+    data:
+      title: "ALARM"
+      message: >-
+        Wykryto ruch w garażu.
+        Czas: {{ now().strftime('%d.%m.%Y %H:%M:%S') }}
+mode: single

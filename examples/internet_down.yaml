@@ -1,0 +1,14 @@
+alias: SMS - brak internetu
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.internet_connection
+    to: "off"
+    for: "00:05:00"
+actions:
+  - action: notify.send_message
+    target:
+      entity_id: notify.smsapi_pl
+    data:
+      title: "Home Assistant"
+      message: "Połączenie z internetem jest niedostępne od co najmniej 5 minut."
+mode: restart

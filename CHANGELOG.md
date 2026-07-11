@@ -1,6 +1,13 @@
 
 # Changelog
 
+## Documentation update
+
+- README and documentation redesign inspired by clear HACS integration repositories.
+- Added badges, Polish and English sections, examples, FAQ and troubleshooting.
+- Added ready-to-use automation examples in `examples/`.
+
+
 ## 1.2.0
 
 - Added an options flow for changing the token, sender and recipients.

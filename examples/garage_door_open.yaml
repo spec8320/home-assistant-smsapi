@@ -1,0 +1,12 @@
+alias: SMS - otwarta brama
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.brama_wjazdowa
+    to: "on"
+    for: "00:10:00"
+actions:
+  - action: smsapi.send_sms
+    data:
+      message: "Uwaga! Brama wjazdowa jest otwarta od co najmniej 10 minut."
+      normalize: true
+mode: restart
