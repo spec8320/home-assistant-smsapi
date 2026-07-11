@@ -1,0 +1,35 @@
+name: Build release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify release version
+        shell: bash
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          MANIFEST_VERSION="$(jq -r '.version' custom_components/smsapi/manifest.json)"
+          test "$VERSION" = "$MANIFEST_VERSION" || {
+            echo "Tag version $VERSION differs from manifest $MANIFEST_VERSION"
+            exit 1
+          }
+
+      - name: Build integration ZIP
+        shell: bash
+        run: |
+          cd custom_components/smsapi
+          zip -r ../../smsapi.zip .                 -x '__pycache__/*' '*.pyc'
+
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: smsapi.zip
