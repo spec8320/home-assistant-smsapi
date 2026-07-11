@@ -1,0 +1,49 @@
+{
+  "title": "SMSAPI.pl",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to SMSAPI.pl",
+        "description": "Enter a static OAuth token generated in the SMSAPI customer panel.",
+        "data": {
+          "token": "OAuth token",
+          "default_sender": "Default sender name",
+          "default_recipients": "Default recipients, comma-separated"
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigure SMSAPI.pl",
+        "description": "Update the token and default settings.",
+        "data": {
+          "token": "OAuth token",
+          "default_sender": "Default sender name",
+          "default_recipients": "Default recipients, comma-separated"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "SMSAPI.pl is already configured",
+      "reconfigure_successful": "Configuration updated successfully"
+    }
+  },
+  "entity": {
+    "notify": {
+      "smsapi": {
+        "name": "SMSAPI.pl"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "SMSAPI.pl settings",
+        "description": "Change the token, default sender and recipients.",
+        "data": {
+          "token": "OAuth token",
+          "default_sender": "Default sender name",
+          "default_recipients": "Default recipients, comma-separated"
+        }
+      }
+    }
+  }
+}
