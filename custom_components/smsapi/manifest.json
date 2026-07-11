@@ -10,5 +10,5 @@
   "iot_class": "cloud_push",
   "issue_tracker": "https://github.com/spec8320/home-assistant-smsapi/issues",
   "requirements": [],
-  "version": "1.2.0"
+  "version": "1.2.2"
 }
