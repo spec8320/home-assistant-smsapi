@@ -1,0 +1,49 @@
+{
+  "title": "SMSAPI.pl",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Połącz z SMSAPI.pl",
+        "description": "Wprowadź statyczny token OAuth wygenerowany w panelu SMSAPI.",
+        "data": {
+          "token": "Token OAuth",
+          "default_sender": "Domyślne pole nadawcy",
+          "default_recipients": "Domyślni odbiorcy, rozdzieleni przecinkami"
+        }
+      },
+      "reconfigure": {
+        "title": "Zmień konfigurację SMSAPI.pl",
+        "description": "Zaktualizuj token oraz ustawienia domyślne.",
+        "data": {
+          "token": "Token OAuth",
+          "default_sender": "Domyślne pole nadawcy",
+          "default_recipients": "Domyślni odbiorcy, rozdzieleni przecinkami"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "SMSAPI.pl jest już skonfigurowane",
+      "reconfigure_successful": "Konfiguracja została zaktualizowana"
+    }
+  },
+  "entity": {
+    "notify": {
+      "smsapi": {
+        "name": "SMSAPI.pl"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Ustawienia SMSAPI.pl",
+        "description": "Zmień token, domyślnego nadawcę i odbiorców.",
+        "data": {
+          "token": "Token OAuth",
+          "default_sender": "Domyślne pole nadawcy",
+          "default_recipients": "Domyślni odbiorcy, rozdzieleni przecinkami"
+        }
+      }
+    }
+  }
+}
